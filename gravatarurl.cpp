@@ -68,5 +68,4 @@ QString GravatarURL::getHash(QString email)
 
     // return hashed value of email
     return hash;
-
 }

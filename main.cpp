@@ -18,22 +18,45 @@
  *
  */
 
+#include <QtCore/QCoreApplication>
+#include <iostream>
+
 #include "gravatarurl.h"
+
+using namespace std;
 
 int main(int argc, char *argv[])
 {
-    // string variable for storing returned url
-    QString profileUrl;
-    QString avatarUrl;
+    QCoreApplication a(argc, argv);
 
-    // object for constructing the gravatar url
-    GravatarURL grav;
+    if(argc > 1)
+    {   // ..an argument was provided
 
-    // example 1 - obtain the gravatar profile url by invoking the
-    // getProfileURL function which returns a QString containing the url
-    profileUrl = grav.getProfileURL("some.email@address.com");
+        // string variable for storing returned url
+        QString profileUrl;
+        QString avatarUrl;
 
-    // example 2 - obtain the avatar url by invoking the
-    // getAvatarURL function which returns a string containing the url
-    avatarUrl = grav.getAvatarURL("some.email@address.com");
+        // object for constructing the gravatar url
+        GravatarURL grav;
+
+        // construct profile url
+        profileUrl = grav.getProfileURL(argv[1]);
+
+        // construct avatar url
+        avatarUrl = grav.getAvatarURL(argv[1]);
+
+        cout << "Profile URL: " << profileUrl.toLocal8Bit().constData() << endl;
+        cout << "Avatar URL: " << avatarUrl.toLocal8Bit().constData() << endl;
+
+        exit(0);
+    }
+    else
+    {   // ..no argument was provided
+
+        // output error and exit
+        cout << "No email address provided, exiting.\n";
+        exit(1);
+    }
+
+    return a.exec();
 }
