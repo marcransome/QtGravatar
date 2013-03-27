@@ -8,7 +8,7 @@ It uses the [official method](http://en.gravatar.com/site/implement/hash/) of cr
 ###Installation
 QtGravatar can be built using the [Qt SDK](http://qt.nokia.com/products/qt-sdk).  A project file (QtGravatar.pro) is provided for convenience.
 
-Once compiled, the program can be executed directly from the command-line (with suitable execute permissions) using `./QtGravatar <email address>` from the build directory (replacing _\<email address\>_ with a valid email address), or the executable can placed within a location contained in your $PATH environment variable and executed using `QtGravatar <email address>`.
+Once compiled, the program can be executed directly from the command-line (with suitable execute permissions) using `./QtGravatar <email address>` from the build directory (replacing _\<email address\>_ with a valid email address), or the executable can be added to your $PATH environment variable and executed using `QtGravatar <email address>`.
 
 ###Usage
 A single command-line argument is required comprising a valid email address.
